@@ -2,13 +2,17 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const https = require("https"); // use https module for nodeJS
-
+// utilData title shold be empty
+const _utilDataTitle = [];
+// utilData info shold be empty
+const _utilDataInfo = [];
+//all set methods
 const newVewsPath = path.join(__dirname, "./Public/views");
 const bodyParser = require("body-parser");
 app.set("view engine", "ejs");
 app.set("views", newVewsPath);
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("Public"));
+app.use(express.static("src"));
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -37,8 +41,12 @@ app.get("/:userName", (req, res) => {
         arrInfo.push(dataInfo.snippet);
       });
       // work whit data
-      console.log(arrayTitles);
-      console.log(arrInfo);
+      // console.log(arrayTitles);
+      // console.log(arrInfo);
+      //to remove from string html tags !!need to do
+      const regex = /<\/?[\w\d]+>/gi;
+      const dataWhithoutHtml = arrInfo.match(regex);
+      console.log(dataWhithoutHtml);
     });
   });
 });
