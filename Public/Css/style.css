@@ -1,3 +1,20 @@
-body {
-  background-color: red;
+.general-form-paddin {
+  margin-top: 50px;
+}
+.sr-only {
+  text-align: center;
+}
+.form-inline {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.top-margin {
+  margin-top: 50px;
+}
+.padding_style {
+  padding-top: 50px;
+}
+.postion {
+  width: 226px;
+  position: relative;
+  left: 71%;
 }
